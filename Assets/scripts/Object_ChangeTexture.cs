@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Message_ChangeSign : MonoBehaviour {
+public class Object_ChangeTexture : MonoBehaviour {
 	public Texture originalTexture, newTexture;
 	public bool changeBack;
 	public float changeBackTimer = 0.1f;
@@ -11,11 +11,15 @@ public class Message_ChangeSign : MonoBehaviour {
 	
 	void Awake()
 	{
+		Debug.Log("Awakening");
 		renderer.material.mainTexture = originalTexture;
+		renderer.material.color = Color.white;
+		renderer.material.shader = Shader.Find("Transparent/Diffuse");
 	}
 	
 	public void Activate()
 	{
+		Debug.Log("Activating");
 		renderer.material.mainTexture = newTexture;
 		if( coRoutine != null )
 			StopCoroutine( "resetText" );
