@@ -18,7 +18,11 @@ public class Object_ChangeTexture : MonoBehaviour {
 	
 	public void Activate()
 	{
-		renderer.material.mainTexture = newTexture;
+		if (newTexture == null)
+			renderer.enabled = false;
+		else
+			renderer.material.mainTexture = newTexture;
+
 		if (coRoutine != null)
 			StopCoroutine("resetText");
 		coRoutine = StartCoroutine("resetText");
@@ -27,6 +31,9 @@ public class Object_ChangeTexture : MonoBehaviour {
 	IEnumerator resetText()
 	{
 		yield return new WaitForSeconds(changeBackTimer);
-		renderer.material.mainTexture = originalTexture;
+		if (!renderer.enabled)
+			renderer.enabled = true;
+		else
+			renderer.material.mainTexture = originalTexture;
 	}
 }
