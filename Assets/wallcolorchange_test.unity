@@ -509,6 +509,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeColor: {r: 1, g: .978904665, b: .235294104, a: 0}
+  changeBack: 1
+  changeBackTimer: .100000001
 --- !u!1 &1214561072
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,6 +919,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeColor: {r: 1, g: 0, b: 0, a: 0}
+  changeBack: 1
+  changeBackTimer: .100000001
 --- !u!1 &2022434736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,3 +1004,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeColor: {r: .233265519, g: .20588237, b: 1, a: 0}
+  changeBack: 1
+  changeBackTimer: .100000001
