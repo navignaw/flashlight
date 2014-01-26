@@ -9,25 +9,27 @@ public class ParticleEmitter_Hide : MonoBehaviour {
 	public float changeBackTimer = 0.1f;
 
 	private Coroutine coRoutine;
+	//private ParticleSystem particleSystem;
 	
 	void Awake()
 	{
-		//particleEmitter.emit = true;
+		//particleSystem = (ParticleSystem) gameObject.GetComponent("ParticleSystem");
+		if (particleSystem != null)
+			particleSystem.Play();//enableEmission = true;
 	}
 	
 	public void Activate()
 	{
-		/*particleEmitter.emit = false;
-		Debug.Log("particle cancelled");
+		particleSystem.Stop();//.enableEmission = false;
 
 		if (coRoutine != null)
 			StopCoroutine("resetText");
-		coRoutine = StartCoroutine("resetText");*/
+		coRoutine = StartCoroutine("resetText");
 	}
 	
 	IEnumerator resetText()
 	{
 		yield return new WaitForSeconds(changeBackTimer);
-		particleEmitter.emit = true;
+		particleSystem.Play();//.enableEmission = true;
 	}
 }
