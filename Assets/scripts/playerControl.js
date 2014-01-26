@@ -3,6 +3,16 @@
 //wiimote boolean
 var wiimote: boolean;
 
+//get flashlight
+private var gotFlashlight: boolean;
+gotFlashlight = false;
+var pedestal: Transform;
+var getFlashlight: GameObject;
+
+//audio 
+var off : AudioClip;
+var on : AudioClip;
+
 //set player variables
 var player : GameObject;
 var horizontalRotator: GameObject;
@@ -37,6 +47,14 @@ function Start()
 //game update loop
 function FixedUpdate () 
 {
+	
+	//get flashlight
+	if(Vector3.Distance(pedestal.position,transform.position)<2.0 && gotFlashlight == false)
+	{
+		gotFlashlight = true;
+		pedestal.audio.Play();
+		Destroy(getFlashlight);
+	}
 	
 	//use wasd to control player
 	
@@ -117,11 +135,11 @@ function FixedUpdate ()
 	xAngle = Mathf.Clamp(xAngle,-80,80);
 	horizontalRotator.transform.localEulerAngles.x = xAngle;
 
-
+	
 
 
 	//move flashlight based on mouse
-	if(Input.GetMouseButton(0)==true)
+	if(Input.GetMouseButton(0)==true && gotFlashlight == true)
 		{
 		flashlight.transform.localPosition.x = Mathf.Lerp( flashlight.transform.localPosition.x,
 															(Input.mousePosition.x-width/2.0)/width*flashlightPositionRange.x,
@@ -141,6 +159,20 @@ function FixedUpdate ()
 	flashlight.transform.rotation = Quaternion.Lerp(flashlight.transform.rotation,
 									Quaternion.LookRotation(flashlightVector),
 									Time.deltaTime*10);
+	
+	//flashlight sounds 
+	if(gotFlashlight == true){	
+		if(Input.GetMouseButtonDown(0) == true)
+		{
+			flashlight.audio.clip = on;
+			flashlight.audio.Play();
+		}
+		if(Input.GetMouseButtonUp(0) == true)
+		{
+			flashlight.audio.clip = off;
+			flashlight.audio.Play();
+		}
+	}	
 	
 	//exit
 	if (Input.GetKey ("escape")) {

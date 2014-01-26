@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Flashlight_Interaction : MonoBehaviour {
 	public GUIStyle aimStyle;
-	public AudioClip onSound, offSound;
 	private Light _light;
 	
 	void Awake() {
@@ -18,16 +17,12 @@ public class Flashlight_Interaction : MonoBehaviour {
 		{
 			_light.enabled = false;
 			StopCoroutine( "FlashlightCast" );
-			audio.clip = offSound;
-			audio.Play();
 		}
 		
 		if(Input.GetMouseButtonDown(0) )
 		{
 			_light.enabled = true;
 			StartCoroutine( "FlashlightCast" );
-			audio.clip = onSound;
-			audio.Play();
 		}
 	}
 
