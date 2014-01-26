@@ -13,7 +13,7 @@ public class Object_ChangeTexture : MonoBehaviour {
 	{
 		renderer.material.mainTexture = originalTexture;
 		renderer.material.color = Color.white;
-		renderer.material.shader = Shader.Find("Transparent/Diffuse");
+		//renderer.material.shader = Shader.Find("Transparent/Diffuse");
 	}
 	
 	public void Activate()
