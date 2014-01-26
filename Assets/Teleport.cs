@@ -9,7 +9,11 @@ public class Teleport : MonoBehaviour {
 	public Transform destination;
 
 	public void OnTriggerEnter	(Collider other) {
-			other.transform.position = destination.position;
+		Debug.Log ("Init TPORT: " + other.transform.position);
+		Debug.Log ("Init PLAY: " + destination.position);
+		other.transform.position = destination.position;
+		Debug.Log ("End TPORT: " + other.transform.position);
+		Debug.Log ("Init PLAY: " + destination.position);
 			handleSound.audio.Play ();
 			doorSound.audio.Play ();
 		}
