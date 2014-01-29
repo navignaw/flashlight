@@ -1,0 +1,20 @@
+newmtl CandleTripleMetalSG
+illum 4
+Kd 0.71 0.71 0.71
+Ka 0.07 0.07 0.07
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+newmtl CandleTripleWaxSG
+illum 4
+Kd 1.00 0.63 0.00
+Ka 0.14 0.14 0.14
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.15 0.15 0.15
+newmtl CandleTripleWickSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.07 0.07 0.07
+Tf 1.00 1.00 1.00
+Ni 1.00
