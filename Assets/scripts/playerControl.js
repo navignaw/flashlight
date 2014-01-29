@@ -103,11 +103,7 @@ function FixedUpdate ()
 		if (player.audio.isPlaying == false) {player.audio.Play();}
 		}
 		else
-<<<<<<< HEAD
 		{player.audio.Stop();}
-=======
-			player.audio.Stop();
->>>>>>> e6ce310fb8da6cc1206c3d56820f66b8641dd9d4
 
 
 	//wiimote true
@@ -151,19 +147,11 @@ function FixedUpdate ()
 		flashlight.transform.localPosition.y = Mathf.Lerp( flashlight.transform.localPosition.y,
 															(Input.mousePosition.y-height/2.0)/height*flashlightPositionRange.y,
 															Time.deltaTime*8);
-<<<<<<< HEAD
-=======
-		flashlight.transform.localPosition.z = Mathf.Lerp( flashlight.transform.localPosition.z,1.5,Time.deltaTime*8);
->>>>>>> e6ce310fb8da6cc1206c3d56820f66b8641dd9d4
 		}
 	else
 		{
 		flashlight.transform.localPosition.x = Mathf.Lerp( flashlight.transform.localPosition.x,0,Time.deltaTime*4);
 		flashlight.transform.localPosition.y = Mathf.Lerp( flashlight.transform.localPosition.y,-4,Time.deltaTime*4);
-<<<<<<< HEAD
-=======
-		flashlight.transform.localPosition.z = Mathf.Lerp( flashlight.transform.localPosition.z,-4,Time.deltaTime*4);
->>>>>>> e6ce310fb8da6cc1206c3d56820f66b8641dd9d4
 		}
 		
 	//rotate flashlight

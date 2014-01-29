@@ -11,24 +11,24 @@ public class Object_ChangeTexture : MonoBehaviour {
 	
 	void Awake()
 	{
-		if (originalTexture != null)
-			renderer.material.mainTexture = originalTexture;
+		Debug.Log("Awakening");
+		renderer.material.mainTexture = originalTexture;
+		renderer.material.color = Color.white;
+		renderer.material.shader = Shader.Find("Transparent/Diffuse");
 	}
 	
 	public void Activate()
 	{
-		if (newTexture != null)
-			renderer.material.mainTexture = newTexture;
-
-		if (coRoutine != null)
-			StopCoroutine("resetTexture");
-		coRoutine = StartCoroutine("resetTexture");
+		Debug.Log("Activating");
+		renderer.material.mainTexture = newTexture;
+		if( coRoutine != null )
+			StopCoroutine( "resetText" );
+		coRoutine = StartCoroutine( "resetText" );
 	}
 	
-	IEnumerator resetTexture()
+	IEnumerator resetText()
 	{
 		yield return new WaitForSeconds(changeBackTimer);
-		if (originalTexture != null)
-			renderer.material.mainTexture = originalTexture;
+		renderer.material.mainTexture = originalTexture;
 	}
 }
